@@ -1,38 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './App.css';
 
-const passwordIsValid = (password, pattern) => {
-  return true; // fonction de comparaison de pattern
-}
-
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      password: '',
-      confirmPassword: '',
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ 
-      [event.key]: event.value
-      passwordIsValid = passwordIsValid(password),
-      confirmPasswordIsValid = passwordIsValid(confirmPassword);
-    });
-  }
-
-  render() {
-    return (
-      <form>
-        <input type="text" placeholder="passsword" onChange={ this.handleChange } />
-        <input type="text" placeholder="confirmPassword" onChange={ this.handleChange } />
-      </form>
-    );
-  } 
-  
-}
+const App = () => (
+  <div className="app">
+    <header className="header">
+      <div className="title">Workaholic</div>
+    </header>
+    <div className="body">
+      hop
+    </div>
+  </div>
+);
 
 export default App;
