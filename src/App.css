@@ -1,6 +1,6 @@
 .app {
+  margin: 0;
   display: flex;
-  flex: 1;
   flex-direction: column;
   height: 100vh;
   align-items: center;
@@ -9,4 +9,22 @@
 
 .logo {
   margin: 0;
+}
+
+.header {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  width: 100%;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  background-color: lightblue;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
