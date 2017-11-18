@@ -1,21 +1,32 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+import UIVerticalLayout from './components/UI/UIVerticalLayout';
+import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
+
+import Message from './components/Message';
+
+const App = () => (
+  <div className="app">
+    <header className="header"><h1>Workaholic</h1></header>
+    <UIVerticalLayout reversed>
+      <form>
+        <UIHorizontalLayout>
+          <input type="text" placeholder="message" />
+          <input type="submit" value="send" />
+        </UIHorizontalLayout>
+      </form>
+      <UIVerticalLayout>
+        <ul>
+          <li><Message text="Message 1" /></li>
+          <li><Message text="Message 2" /></li>
+          <li><Message text="Message 3" /></li>
+          <li><Message text="Message 4" /></li>
+          <li><Message text="Message 5" /></li>
+        </ul>
+      </UIVerticalLayout>
+    </UIVerticalLayout>
+  </div>
+);
 
 export default App;
