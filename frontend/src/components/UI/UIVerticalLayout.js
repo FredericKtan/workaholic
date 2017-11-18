@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Layout = ({ reversed, children }) => {
+const UIVerticalLayout = ({ reversed, children }) => {
   const styles = {
     container: {
       display: 'flex',
@@ -15,7 +15,7 @@ const Layout = ({ reversed, children }) => {
   return <div style={{ ...styles.container, ...styles.reversed }}>{children}</div>;
 };
 
-Layout.propTypes = {
+UIVerticalLayout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -23,9 +23,9 @@ Layout.propTypes = {
   reversed: PropTypes.bool,
 };
 
-Layout.defaultProps = {
+UIVerticalLayout.defaultProps = {
   children: null,
   reversed: false,
 };
 
-export default Layout;
+export default UIVerticalLayout;
