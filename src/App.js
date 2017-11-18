@@ -14,7 +14,7 @@ const App = () => (
         <UIHorizontalLayout>
           <input type="text" placeholder="message" />
           <input type="submit" value="send" />
-        </UIHorizontalLayout> 
+        </UIHorizontalLayout>
       </form>
       <UIVerticalLayout>
         <ul>
