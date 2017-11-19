@@ -7,7 +7,7 @@
 
 .header {
   display: flex;
-  height: 50px;
+  height: 100px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -25,4 +25,15 @@
   flex-direction: column;
   flex: 1;
   background-color: lightgreen; 
+}
+
+.logo {
+  display: flex;
+  background-color: lightsteelblue;
+  border-radius: 50px;
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
 }
