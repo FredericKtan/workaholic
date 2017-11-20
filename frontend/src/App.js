@@ -3,6 +3,7 @@ import './App.css';
 
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
+import UIButton from './components/UI/UIButton/UIButton';
 
 import Message from './components/Message';
 
@@ -14,6 +15,7 @@ const App = () => (
         <UIHorizontalLayout>
           <input type="text" placeholder="message" />
           <input type="submit" value="send" />
+          <UIButton text="Hover me !" />
         </UIHorizontalLayout>
       </form>
       <UIVerticalLayout>
