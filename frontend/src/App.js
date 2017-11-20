@@ -8,7 +8,7 @@ import Message from './components/Message';
 
 const App = () => (
   <div className="app">
-    <header className="header"><h1>Workaholic</h1></header>
+    <header className="header"><span className="logo">FM</span><h1>Workaholic</h1></header>
     <UIVerticalLayout reversed>
       <form>
         <UIHorizontalLayout>
