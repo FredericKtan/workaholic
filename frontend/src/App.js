@@ -9,7 +9,7 @@ import Message from './components/Message';
 
 const App = () => (
   <div className="app">
-    <header className="header"><span>FM</span><h1>Workaholic</h1></header>
+    <header className="header"><UIButton text="FM" /><h1>Workaholic</h1></header>
     <UIVerticalLayout reversed>
       <form>
         <UIHorizontalLayout>
