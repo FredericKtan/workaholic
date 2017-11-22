@@ -13,7 +13,7 @@ const Message = ({ text }) => {
 };
 
 Message.propTypes = {
-  text: PropTypes.text,
+  text: PropTypes.string,
 };
 
 Message.defaultProps = {
