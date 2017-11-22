@@ -1,10 +1,12 @@
 // Modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import './App.css';
 
-// Custom component
+// Actions
+import { createMessage } from './actions/message';
+
+// Component
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
 
@@ -17,12 +19,22 @@ class App extends Component {
     this.state = {
 
     };
+
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  handleOnClick() {
+    this.props.store.dispatch(createMessage('Hello world'));
   }
 
   render() {
     return (
       <div className="app">
-        <header className="header"><span>FM</span><h1>Workaholic</h1></header>
+        <header className="header">
+          <span>FM</span>
+          <h1>Workaholic</h1>
+          <button onClick={this.handleOnClick}>Press me !</button>
+        </header>
         <UIVerticalLayout reversed>
           <form>
             <UIHorizontalLayout>

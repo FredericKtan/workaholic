@@ -2,7 +2,10 @@
 const messageReducer = (state = '', action) => {
   switch (action.type) {
     case 'CREATE_MESSAGE':
-      return state;
+      return {
+        id: action.id,
+        text: action.text,
+      };
     case 'READ_MESSAGE':
       return state;
     case 'UPDATE_MESSAGE':
