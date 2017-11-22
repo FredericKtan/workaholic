@@ -3,17 +3,19 @@ import './App.css';
 
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
+import UIButton from './components/UI/UIButton/UIButton';
 
 import Message from './components/Message';
 
 const App = () => (
   <div className="app">
-    <header className="header"><span>FM</span><h1>Workaholic</h1></header>
+    <header className="header"><UIButton text="FM" /><h1>Workaholic</h1></header>
     <UIVerticalLayout reversed>
       <form>
         <UIHorizontalLayout>
           <input type="text" placeholder="message" />
           <input type="submit" value="send" />
+          <UIButton text="Hover me !" />
         </UIHorizontalLayout>
       </form>
       <UIVerticalLayout>
