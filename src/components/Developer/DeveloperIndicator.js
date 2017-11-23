@@ -8,7 +8,9 @@ const DeveloperIndicator = () => {
       bottom: '25px',
       margin: '0',
       padding: '10px',
-      backgroundColor: '#DCE775',
+      backgroundColor: '#009688',
+      color: '#FFFFFF',
+      borderRadius: '5px',
     },
   };
 
