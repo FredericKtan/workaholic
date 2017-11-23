@@ -6,9 +6,12 @@ import './App.css';
 // Actions
 import { createMessage } from './actions/message';
 
+// Developer component
+import DeveloperIndicator from './components/Developer/DeveloperIndicator';
+
 // Component
-import UIVerticalLayout from './components/UI/UIVerticalLayout';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
+import UIVerticalLayout from './components/UI/UIVerticalLayout';
 
 import Message from './components/Message';
 
@@ -53,6 +56,7 @@ class App extends Component {
             </ul>
           </UIVerticalLayout>
         </UIVerticalLayout>
+        { process.env.NODE_ENV ? <DeveloperIndicator /> : null }
       </div>
     );
   }
