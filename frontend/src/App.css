@@ -12,17 +12,3 @@
   justify-content: center;
   align-items: center;
 }
-
-.layout-column-reversed {
-  display: flex;
-  flex-direction: column-reverse;
-  flex: 1;
-  background-color: green;
-}
-
-.layout-column {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  background-color: lightgreen; 
-}
