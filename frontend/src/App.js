@@ -56,50 +56,50 @@ class App extends Component {
         width: '500px',
         opacity: '1',
         overflowY: 'hidden',
+        color: '#fafafa',
+        backgroundColor: '#050505',
       },
     };
 
     return (
       <div className="app">
-        <UIVerticalLayout>
-          <header className="header">
-            <span>FM</span>
-            <h1>Workaholic</h1>
-            <button onClick={this.handleOnClick}>Press me !</button>
-          </header>
-          <UIHorizontalLayout>
-            <div
-              ref={(ref) => { this.sideBar = ref; }}
-              style={{ ...styles.sideBar }}
-            >
-              <h2>Menu</h2>
-              <hr />
-              <ul>
-                {getElements(['a', 'b', 'c'])}
-              </ul>
-            </div>
-            <UIVerticalLayout>
-              <UIVerticalLayout reversed>
-                <form>
-                  <UIHorizontalLayout>
-                    <input type="text" placeholder="message" />
-                    <input type="submit" value="send" />
-                  </UIHorizontalLayout>
-                </form>
-                <UIVerticalLayout>
-                  <ul>
-                    <li><Message text="Message 1" /></li>
-                    <li><Message text="Message 2" /></li>
-                    <li><Message text="Message 3" /></li>
-                    <li><Message text="Message 4" /></li>
-                    <li><Message text="Message 5" /></li>
-                    <li><Message text={this.props.store.getState().message} /></li>
-                  </ul>
-                </UIVerticalLayout>
+        <UIHorizontalLayout>
+          <div
+            ref={(ref) => { this.sideBar = ref; }}
+            style={{ ...styles.sideBar }}
+          >
+            <h2>Menu</h2>
+            <hr />
+            <ul>
+              {getElements(['a', 'b', 'c'])}
+            </ul>
+          </div>
+          <UIVerticalLayout>
+            <header className="header">
+              <span>FM</span>
+              <h1>Workaholic</h1>
+              <button onClick={this.handleOnClick}>Press me !</button>
+            </header>
+            <UIVerticalLayout reversed>
+              <form>
+                <UIHorizontalLayout>
+                  <input type="text" placeholder="message" />
+                  <input type="submit" value="send" />
+                </UIHorizontalLayout>
+              </form>
+              <UIVerticalLayout>
+                <ul>
+                  <li><Message text="Message 1" /></li>
+                  <li><Message text="Message 2" /></li>
+                  <li><Message text="Message 3" /></li>
+                  <li><Message text="Message 4" /></li>
+                  <li><Message text="Message 5" /></li>
+                  <li><Message text={this.props.store.getState().message} /></li>
+                </ul>
               </UIVerticalLayout>
             </UIVerticalLayout>
-          </UIHorizontalLayout>
-        </UIVerticalLayout>
+          </UIVerticalLayout>
+        </UIHorizontalLayout>
         { process.env.NODE_ENV ? <DeveloperIndicator /> : null }
       </div>
     );
