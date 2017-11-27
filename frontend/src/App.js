@@ -1,11 +1,12 @@
 // Modules
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import { Route, Switch } from 'react-router-dom';
 import { TweenLite } from 'gsap';
 import './App.css';
 
 // Actions
-import { createMessage } from './actions/message';
+// import { createMessage } from './actions/message';
 
 // Developer component
 import DeveloperIndicator from './components/Developer/DeveloperIndicator';
@@ -14,13 +15,24 @@ import DeveloperIndicator from './components/Developer/DeveloperIndicator';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 
-import Message from './components/Message';
+// Pages
+import AboutPage from './routes/AboutPage';
+import HomePage from './routes/HomePage';
+import MessagesPage from './routes/MessagesPage';
+import UsersPage from './routes/UsersPage';
 
 const getElements = items => (
   items.map((item, key) => (
     <li key={item}>Element {key}</li>
   ))
 );
+
+const navigationItems = [
+  { route: '/', text: 'Home' },
+  { route: '/messages', text: 'Messages' },
+  { route: '/users', text: 'Users' },
+  { route: '/about', text: 'About' },
+];
 
 class App extends Component {
   constructor(props) {
@@ -56,6 +68,8 @@ class App extends Component {
         width: '500px',
         opacity: '1',
         overflowY: 'hidden',
+        backgroundColor: '#050505',
+        color: '#fafafa',
       },
     };
 
@@ -87,14 +101,12 @@ class App extends Component {
                   </UIHorizontalLayout>
                 </form>
                 <UIVerticalLayout>
-                  <ul>
-                    <li><Message text="Message 1" /></li>
-                    <li><Message text="Message 2" /></li>
-                    <li><Message text="Message 3" /></li>
-                    <li><Message text="Message 4" /></li>
-                    <li><Message text="Message 5" /></li>
-                    <li><Message text={this.props.store.getState().message} /></li>
-                  </ul>
+                  <Switch>
+                    <Route exact path="/" component={HomePage} />
+                    <Route exact path="/Messages" component={MessagesPage} />
+                    <Route exact path="/Users" component={UsersPage} />
+                    <Route exact path="/About" component={AboutPage} />
+                  </Switch>
                 </UIVerticalLayout>
               </UIVerticalLayout>
             </UIVerticalLayout>
@@ -107,11 +119,11 @@ class App extends Component {
 }
 
 App.propTypes = {
-  store: PropTypes.object,
+  // store: PropTypes.object,
 };
 
 App.defaultProps = {
-  store: {},
+  // store: {},
 };
 
 export default App;
