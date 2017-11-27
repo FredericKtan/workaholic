@@ -1,7 +1,7 @@
 // Modules
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
 import { TweenLite } from 'gsap';
 import './App.css';
 
@@ -16,23 +16,19 @@ import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 
 // Pages
+import navigationItems from './routes';
 import AboutPage from './routes/AboutPage';
 import HomePage from './routes/HomePage';
 import MessagesPage from './routes/MessagesPage';
 import UsersPage from './routes/UsersPage';
 
-const getElements = items => (
-  items.map((item, key) => (
-    <li key={item}>Element {key}</li>
+const NavigationListComponent = navigationList => (
+  navigationList.map(navigation => (
+    <Link to={navigation.route}>
+      <li>{navigation.text}</li>
+    </Link>
   ))
 );
-
-const navigationItems = [
-  { route: '/', text: 'Home' },
-  { route: '/messages', text: 'Messages' },
-  { route: '/users', text: 'Users' },
-  { route: '/about', text: 'About' },
-];
 
 class App extends Component {
   constructor(props) {
@@ -89,7 +85,7 @@ class App extends Component {
               <h2>Menu</h2>
               <hr />
               <ul>
-                {getElements(['a', 'b', 'c'])}
+                {NavigationListComponent(navigationItems)}
               </ul>
             </div>
             <UIVerticalLayout>
