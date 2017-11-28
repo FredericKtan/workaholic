@@ -1,12 +1,13 @@
 // Modules
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
-import { Link, Route, Switch } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import { TweenLite } from 'gsap';
 import './App.css';
 
 // Actions
-// import { createMessage } from './actions/message';
+import { createMessage } from './actions/message';
 
 // Developer component
 import DeveloperIndicator from './components/Developer/DeveloperIndicator';
@@ -39,11 +40,14 @@ class App extends Component {
     };
 
     this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleToggleSideBar = this.handleToggleSideBar.bind(this);
   }
 
   handleOnClick() {
-    // this.props.store.dispatch(createMessage('Hello world'));
+    this.props.dispatch(createMessage('Hello World !'));
+  }
 
+  handleToggleSideBar() {
     TweenLite.to(this.sideBar, 1, {
       width: this.state.sideBarIsOpen ? '0px' : '500px',
       opacity: this.state.sideBarIsOpen ? '0' : '1',
@@ -115,11 +119,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  // store: PropTypes.object,
+  dispatch: PropTypes.func.isRequired,
 };
 
-App.defaultProps = {
-  // store: {},
-};
-
-export default App;
+export default withRouter(connect()(App));
