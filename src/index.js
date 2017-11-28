@@ -3,12 +3,13 @@
 // Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
 
 // Custom modules
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import configureStore from './store';
+import configureStore, { history } from './store';
 
 // Custom components
 import App from './App';
@@ -17,9 +18,11 @@ import App from './App';
 const store = configureStore();
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App store={store} />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById('root'),
 );
 registerServiceWorker();
