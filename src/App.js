@@ -25,7 +25,7 @@ import UsersPage from './routes/UsersPage';
 
 const NavigationListComponent = navigationList => (
   navigationList.map(navigation => (
-    <Link to={navigation.route}>
+    <Link to={navigation.route} key={navigation.id}>
       <li>{navigation.text}</li>
     </Link>
   ))
