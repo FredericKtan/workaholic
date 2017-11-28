@@ -3,6 +3,7 @@
 // Modules
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 // Custom modules
 import './index.css';
@@ -15,5 +16,10 @@ import App from './App';
 // Store
 const store = configureStore();
 
-ReactDOM.render(<App store={store} />, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App store={store} />
+  </BrowserRouter>,
+  document.getElementById('root'),
+);
 registerServiceWorker();
