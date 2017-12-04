@@ -1,8 +1,8 @@
-var mongoose = require('mongoose');
-var Message = mongoose.model('Messages');
-
+const connect = require('../../connect');
 //GET ALL Messages
 exports.readAll = function(req, res){
+    
+  /*
     Message.find({})
       .catch((err) => {
         res.status(500).send({message : "Some error occured while retrieving messages."});
@@ -11,6 +11,7 @@ exports.readAll = function(req, res){
         res.status(200).send(messages);
       });
     console.log("API called GET : Message / GET ALL");
+  */
 }
 
 //GET By ID : Message
@@ -32,15 +33,27 @@ exports.read = function(req, res){
 exports.create = function(req, res){
     if(!req.body.text){
       res.status(400).send({message : "text can not be empty"});
-    }    
-    var newMessage = new Message(req.body);
+    }
+    let text = req.body.text;
+
+    let database = connect.connect().database();
+    var key = database.ref().push().key;
+    let message = database.ref('messages/').push({
+      message : text,
+      createAt : Date.now(),
+      editedAt : null
+    });
+    console.log(message.key);
+    /*
     newMessage.save((err, message) =>{
       if(err){
         res.status(500).send({message : "Some error occurred while creating the message"});
       }
       res.status(200).send(message);
     });
+    */
     console.log("API called PUT : Message / PUT");
+    
 };
 
 //PUT by ID : update the language

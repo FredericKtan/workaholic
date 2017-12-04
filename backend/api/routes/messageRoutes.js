@@ -7,9 +7,10 @@ module.exports = function(app){
         .post(message.create)
     ;
     //GET / PUT / DELETE by Id
-    app.route('/api/message/:messageId')
+ /*   app.route('/api/message/:messageId')
         .get(message.read)
         .put(message.update)
         .delete(message.delete)
     ;
+    */
 }
