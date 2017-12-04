@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link, Route, Switch, withRouter } from 'react-router-dom';
 import { TweenLite } from 'gsap';
-import firebase from './api/firebase';
 import './App.css';
 
 // Actions
