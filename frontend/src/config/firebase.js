@@ -5,4 +5,6 @@ const config = {
   storageBucket: 'workaholic-18942.appspot.com',
 };
 
+const hello = 'hello world';
+
 export default config;

@@ -10,7 +10,7 @@
 /build
 
 # config
-/config
+/frontend/config/*
 
 # misc
 .DS_Store
