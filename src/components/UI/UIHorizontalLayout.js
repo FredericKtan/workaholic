@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const UIHorizontalLayout = ({ reversed, children }) => {
+const UIHorizontalLayout = ({ centered, children, reversed }) => {
   const styles = {
     view: {
       display: 'flex',
@@ -10,9 +10,13 @@ const UIHorizontalLayout = ({ reversed, children }) => {
     reversed: {
       flexDirection: reversed ? 'row-reverse' : 'row',
     },
+    centered: {
+      justifyContent: centered ? 'center' : undefined,
+      alignItems: centered ? 'center' : undefined,
+    },
   };
 
-  return <div style={{ ...styles.view, ...styles.reversed }}>{children}</div>;
+  return <div style={{ ...styles.view, ...styles.reversed, ...styles.centered }}>{children}</div>;
 };
 
 UIHorizontalLayout.propTypes = {
@@ -21,11 +25,13 @@ UIHorizontalLayout.propTypes = {
     PropTypes.node,
   ]),
   reversed: PropTypes.bool,
+  centered: PropTypes.bool,
 };
 
 UIHorizontalLayout.defaultProps = {
   children: null,
   reversed: false,
+  centered: false,
 };
 
 export default UIHorizontalLayout;
