@@ -13,7 +13,8 @@ import { createMessage } from './actions/message';
 import DeveloperIndicator from './components/Developer/DeveloperIndicator';
 
 // Component
-import UIContainer from "./components/UI/UIContainer";
+import MenuItem from './components/SideBar/MenuItem';
+import UIContainer from './components/UI/UIContainer';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 
@@ -66,7 +67,7 @@ class App extends Component {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        width: '500px',
+        width: '300px',
         opacity: '1',
         overflowY: 'hidden',
         backgroundColor: '#050505',
@@ -93,6 +94,11 @@ class App extends Component {
               <hr />
               <ul>
                 {NavigationListComponent(navigationItems)}
+              </ul>
+              <ul>
+                <MenuItem title="Hello" text="World" />
+                <MenuItem title="Hello" text="World" />
+                <MenuItem title="Hello" text="World" />
               </ul>
             </div>
             <UIVerticalLayout>
