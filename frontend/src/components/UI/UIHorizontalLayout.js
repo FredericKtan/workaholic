@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const UIHorizontalLayout = ({ reversed, children }) => {
   const styles = {
-    container: {
+    view: {
       display: 'flex',
       flex: '1',
     },
@@ -12,7 +12,7 @@ const UIHorizontalLayout = ({ reversed, children }) => {
     },
   };
 
-  return <div style={{ ...styles.container, ...styles.reversed }}>{children}</div>;
+  return <div style={{ ...styles.view, ...styles.reversed }}>{children}</div>;
 };
 
 UIHorizontalLayout.propTypes = {
