@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const UIBlock = ({ children }) => {
+const UIContainer = ({ children }) => {
   const styles = {
     view: {
-      backgroundColor: 'green',
+      margin: '10px',
     },
   };
 
@@ -15,15 +15,15 @@ const UIBlock = ({ children }) => {
   );
 };
 
-UIBlock.propTypes = {
+UIContainer.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]),
 };
 
-UIBlock.defaultProps = {
+UIContainer.defaultProps = {
   children: null,
 };
 
-export default UIBlock;
+export default UIContainer;
