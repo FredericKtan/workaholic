@@ -13,6 +13,7 @@ import { createMessage } from './actions/message';
 import DeveloperIndicator from './components/Developer/DeveloperIndicator';
 
 // Component
+import UIContainer from "./components/UI/UIContainer";
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 
@@ -79,14 +80,16 @@ class App extends Component {
           <header className="header">
             <span>FM</span>
             <h1>Workaholic</h1>
-            <button onClick={this.handleOnClick}>Press me !</button>
+            <button onClick={this.handleToggleSideBar}>Press me !</button>
           </header>
           <UIHorizontalLayout>
             <div
               ref={(ref) => { this.sideBar = ref; }}
               style={{ ...styles.sideBar }}
             >
-              <h2>Menu</h2>
+              <UIContainer>
+                <h2>Menu</h2>
+              </UIContainer>
               <hr />
               <ul>
                 {NavigationListComponent(navigationItems)}
