@@ -7,34 +7,53 @@ import UIVerticalLayout from '../UI/UIVerticalLayout';
 
 import MenuIcon from './MenuIcon';
 
-const styles = {
-  view: {
-    display: 'flex',
-    flex: '1',
-    color: 'black',
-    backgroundColor: 'white',
-  },
-  title: {
-    fontWeight: 'bold',
-    color: 'black',
-  },
-  text: {
-    color: 'black',
-  },
-};
-
 class MenuItem extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-
+      isHovered: false,
     };
+
+    this.handleMouseLeave = this.handleMouseLeave.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+  }
+
+  handleMouseLeave() {
+    this.setState({
+      isHovered: false,
+    });
+  }
+
+  handleMouseEnter() {
+    this.setState({
+      isHovered: true,
+    });
   }
 
   render() {
+    const styles = {
+      view: {
+        display: 'flex',
+        flex: '1',
+        color: 'black',
+        backgroundColor: this.state.isHovered ? 'green' : 'white',
+      },
+      title: {
+        fontWeight: 'bold',
+        color: 'black',
+      },
+      text: {
+        color: 'black',
+      },
+    };
+
     return (
-      <div style={{ ...styles.view }}>
+      <div
+        style={{ ...styles.view }}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+      >
         <UIContainer>
           <UIHorizontalLayout centered>
             <MenuIcon />
