@@ -94,9 +94,9 @@ class App extends Component {
               </UIContainer>
               <hr />
               <MenuList>
-                <MenuItem title={'Frederic MAMATH'} text={'Admin'} />
+                <MenuItem title="Frederic MAMATH" text="Admin" />
                 {NavigationListComponent(navigationItems)}
-                <MenuItem title={'Log out'} />                
+                <MenuItem title="Log out" />
               </MenuList>
             </div>
             <UIVerticalLayout>
