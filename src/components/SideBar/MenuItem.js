@@ -52,10 +52,11 @@ class MenuItem extends Component {
       },
       title: {
         fontWeight: 'bold',
-        marginTop: '15px',
+        marginTop: '20px',
         marginBottom: '5px',
       },
       text: {
+        fontSize: '0.8em',
         marginTop: '5px',
         marginBottom: '15px',
       },
