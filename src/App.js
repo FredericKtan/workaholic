@@ -9,12 +9,12 @@ import './App.css';
 // Actions
 import { createMessage } from './actions/message';
 
-// Developer component
+// Development component
 import DeveloperIndicator from './components/Developer/DeveloperIndicator';
 
 // Component
-import MenuList from './components/SideBar/MenuList';
 import MenuItem from './components/SideBar/MenuItem';
+import MenuList from './components/SideBar/MenuList';
 import UIContainer from './components/UI/UIContainer';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
@@ -94,7 +94,9 @@ class App extends Component {
               </UIContainer>
               <hr />
               <MenuList>
+                <MenuItem title={'Frederic MAMATH'} text={'Admin'} />
                 {NavigationListComponent(navigationItems)}
+                <MenuItem title={'Log out'} />                
               </MenuList>
             </div>
             <UIVerticalLayout>
