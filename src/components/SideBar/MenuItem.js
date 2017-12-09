@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TweenLite } from 'gsap';
 
-import UIContainer from '../UI/UIContainer';
 import UIHorizontalLayout from '../UI/UIHorizontalLayout';
 import UIVerticalLayout from '../UI/UIVerticalLayout';
 
@@ -23,7 +22,8 @@ class MenuItem extends Component {
 
   hoverAnimation() {
     TweenLite.to(this.item, 0.3, {
-      backgroundColor: this.state.isHovered ? 'green' : 'white',
+      backgroundColor: this.state.isHovered ? 'rgba(110, 110, 200, 1)' : 'white',
+      color: this.state.isHovered ? 'rgba(250, 250, 250, 1)' : 'rgba(176, 176, 176, 1)',
       onComplete: () => {},
     });
   }
@@ -45,17 +45,19 @@ class MenuItem extends Component {
   render() {
     const styles = {
       view: {
-        backgroundColor: 'white',
+        backgroundColor: this.props.active ? 'rgba(110, 110, 200, 1)' : 'white',
         display: 'flex',
         flex: '1',
-        color: 'black',
+        color: 'rgba(176, 176, 176, 1)',
       },
       title: {
         fontWeight: 'bold',
-        color: 'black',
+        marginTop: '15px',
+        marginBottom: '5px',
       },
       text: {
-        color: 'black',
+        marginTop: '5px',
+        marginBottom: '15px',
       },
     };
 
@@ -66,23 +68,28 @@ class MenuItem extends Component {
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleHover}
       >
-        <UIContainer>
-          <UIHorizontalLayout centered>
+        <UIHorizontalLayout centered>
+          <UIHorizontalLayout centered ratio="1">
             <MenuIcon />
-            <UIVerticalLayout>
-              <p style={{ ...styles.title }}>{ this.props.title }</p>
-              <p style={{ ...styles.text }}>{ this.props.text }</p>
-            </UIVerticalLayout>
           </UIHorizontalLayout>
-        </UIContainer>
+          <UIVerticalLayout ratio="2">
+            <p style={{ ...styles.title }}>{ this.props.title }</p>
+            <p style={{ ...styles.text }}>{ this.props.text }</p>
+          </UIVerticalLayout>
+        </UIHorizontalLayout>
       </div>
     );
   }
 }
 
 MenuItem.propTypes = {
-  title: PropTypes.string.isRequired,
+  active: PropTypes.bool,
   text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+MenuItem.defaultProps = {
+  active: false,
 };
 
 export default MenuItem;

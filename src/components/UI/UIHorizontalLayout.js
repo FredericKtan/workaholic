@@ -1,11 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const UIHorizontalLayout = ({ centered, children, reversed }) => {
+const UIHorizontalLayout = ({
+  centered,
+  children,
+  ratio,
+  reversed,
+}) => {
   const styles = {
     view: {
       display: 'flex',
-      flex: '1',
+      flex: ratio,
     },
     reversed: {
       flexDirection: reversed ? 'row-reverse' : 'row',
@@ -26,9 +31,11 @@ UIHorizontalLayout.propTypes = {
   ]),
   reversed: PropTypes.bool,
   centered: PropTypes.bool,
+  ratio: PropTypes.string,
 };
 
 UIHorizontalLayout.defaultProps = {
+  ratio: '1',
   children: null,
   reversed: false,
   centered: false,
