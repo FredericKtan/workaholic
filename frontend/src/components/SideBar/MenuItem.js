@@ -32,7 +32,7 @@ class MenuItem extends Component {
     this.setState({
       isHovered: !this.state.isHovered,
     }, () => {
-      this.hoverAnimation();      
+      this.hoverAnimation();
     });
   }
 
