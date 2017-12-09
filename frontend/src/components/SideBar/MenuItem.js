@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { TweenLite } from 'gsap';
 
 import UIContainer from '../UI/UIContainer';
 import UIHorizontalLayout from '../UI/UIHorizontalLayout';
@@ -15,13 +16,23 @@ class MenuItem extends Component {
       isHovered: false,
     };
 
-    this.handleMouseLeave = this.handleMouseLeave.bind(this);
     this.handleMouseEnter = this.handleMouseEnter.bind(this);
+    this.handleHover = this.handleHover.bind(this);
+    this.hoverAnimation = this.hoverAnimation.bind(this);
   }
 
-  handleMouseLeave() {
+  hoverAnimation() {
+    TweenLite.to(this.item, 0.3, {
+      backgroundColor: this.state.isHovered ? 'green' : 'white',
+      onComplete: () => {},
+    });
+  }
+
+  handleHover() {
     this.setState({
-      isHovered: false,
+      isHovered: !this.state.isHovered,
+    }, () => {
+      this.hoverAnimation();      
     });
   }
 
@@ -34,10 +45,10 @@ class MenuItem extends Component {
   render() {
     const styles = {
       view: {
+        backgroundColor: 'white',
         display: 'flex',
         flex: '1',
         color: 'black',
-        backgroundColor: this.state.isHovered ? 'green' : 'white',
       },
       title: {
         fontWeight: 'bold',
@@ -50,9 +61,10 @@ class MenuItem extends Component {
 
     return (
       <div
+        ref={(ref) => { this.item = ref; }}
         style={{ ...styles.view }}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
+        onMouseEnter={this.handleHover}
+        onMouseLeave={this.handleHover}
       >
         <UIContainer>
           <UIHorizontalLayout centered>

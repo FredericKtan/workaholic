@@ -51,7 +51,7 @@ class App extends Component {
 
   handleToggleSideBar() {
     TweenLite.to(this.sideBar, 1, {
-      width: this.state.sideBarIsOpen ? '0px' : '500px',
+      width: this.state.sideBarIsOpen ? '0px' : '300px',
       opacity: this.state.sideBarIsOpen ? '0' : '1',
       onComplete: () => {},
     });
