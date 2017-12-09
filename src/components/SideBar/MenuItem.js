@@ -71,7 +71,7 @@ class MenuItem extends Component {
       >
         <UIHorizontalLayout centered>
           <UIHorizontalLayout centered ratio="1">
-            <MenuIcon />
+            <MenuIcon icon={this.props.icon} />
           </UIHorizontalLayout>
           <UIVerticalLayout ratio="2">
             <p style={{ ...styles.title }}>{ this.props.title }</p>
@@ -85,12 +85,14 @@ class MenuItem extends Component {
 
 MenuItem.propTypes = {
   active: PropTypes.bool,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   title: PropTypes.string.isRequired,
+  icon: PropTypes.string,
 };
 
 MenuItem.defaultProps = {
   active: false,
+  icon: '',
 };
 
 export default MenuItem;
