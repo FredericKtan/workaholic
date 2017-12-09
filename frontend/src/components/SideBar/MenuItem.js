@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TweenLite } from 'gsap';
+import { isEmpty } from 'ramda';
 
 import UIHorizontalLayout from '../UI/UIHorizontalLayout';
 import UIVerticalLayout from '../UI/UIVerticalLayout';
@@ -52,8 +53,8 @@ class MenuItem extends Component {
       },
       title: {
         fontWeight: 'bold',
-        marginTop: '20px',
-        marginBottom: '5px',
+        marginTop: !isEmpty(this.props.text) ? '20px' : '0px',
+        marginBottom: !isEmpty(this.props.text) ? '5px' : '0px',
       },
       text: {
         fontSize: '0.8em',
@@ -75,7 +76,11 @@ class MenuItem extends Component {
           </UIHorizontalLayout>
           <UIVerticalLayout ratio="2">
             <p style={{ ...styles.title }}>{ this.props.title }</p>
-            <p style={{ ...styles.text }}>{ this.props.text }</p>
+            {
+              !isEmpty(this.props.text)
+              ? <p style={{ ...styles.text }}>{ this.props.text }</p>
+              : null
+            }
           </UIVerticalLayout>
         </UIHorizontalLayout>
       </div>
@@ -93,6 +98,7 @@ MenuItem.propTypes = {
 MenuItem.defaultProps = {
   active: false,
   icon: '',
+  text: '',
 };
 
 export default MenuItem;
