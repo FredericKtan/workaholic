@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const UIVerticalLayout = ({ reversed, children }) => {
+const UIVerticalLayout = ({ reversed, children, ratio }) => {
   const styles = {
     view: {
       display: 'flex',
-      flex: '1',
+      flex: ratio,
     },
     reversed: {
       flexDirection: reversed ? 'column-reverse' : 'column',
@@ -21,9 +21,11 @@ UIVerticalLayout.propTypes = {
     PropTypes.node,
   ]),
   reversed: PropTypes.bool,
+  ratio: PropTypes.string,
 };
 
 UIVerticalLayout.defaultProps = {
+  ratio: '1',
   children: null,
   reversed: false,
 };
