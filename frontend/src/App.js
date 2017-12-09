@@ -9,11 +9,12 @@ import './App.css';
 // Actions
 import { createMessage } from './actions/message';
 
-// Developer component
+// Development component
 import DeveloperIndicator from './components/Developer/DeveloperIndicator';
 
 // Component
 import MenuItem from './components/SideBar/MenuItem';
+import MenuList from './components/SideBar/MenuList';
 import UIContainer from './components/UI/UIContainer';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
@@ -27,8 +28,8 @@ import UsersPage from './routes/UsersPage';
 
 const NavigationListComponent = navigationList => (
   navigationList.map(navigation => (
-    <Link to={navigation.route} key={navigation.id}>
-      <li>{navigation.text}</li>
+    <Link to={navigation.route} key={navigation.id} style={{ textDecoration: 'none' }}>
+      <MenuItem title={navigation.text} text="Hello World !" />
     </Link>
   ))
 );
@@ -92,14 +93,11 @@ class App extends Component {
                 <h2>Menu</h2>
               </UIContainer>
               <hr />
-              <ul>
+              <MenuList>
+                <MenuItem title="Frederic MAMATH" text="Admin" />
                 {NavigationListComponent(navigationItems)}
-              </ul>
-              <ul>
-                <MenuItem title="Hello" text="World" />
-                <MenuItem title="Hello" text="World" />
-                <MenuItem title="Hello" text="World" />
-              </ul>
+                <MenuItem title="Log out" />
+              </MenuList>
             </div>
             <UIVerticalLayout>
               <UIVerticalLayout reversed>
