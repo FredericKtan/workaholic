@@ -29,7 +29,7 @@ import UsersPage from './routes/UsersPage';
 const NavigationListComponent = navigationList => (
   navigationList.map(navigation => (
     <Link to={navigation.route} key={navigation.id} style={{ textDecoration: 'none' }}>
-      <MenuItem title={navigation.text} text="Hello World !" />
+      <MenuItem title={navigation.text} text="Hello World !" mood={navigation.mood} />
     </Link>
   ))
 );
