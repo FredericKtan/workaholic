@@ -54,12 +54,12 @@ class MenuItem extends Component {
       title: {
         fontWeight: 'bold',
         marginTop: !isEmpty(this.props.text) ? '20px' : '0px',
-        marginBottom: !isEmpty(this.props.text) ? '5px' : '0px',
+        marginBottom: !isEmpty(this.props.text) ? '2px' : '0px',
       },
       text: {
         fontSize: '0.8em',
-        marginTop: '5px',
-        marginBottom: '15px',
+        marginTop: '2px',
+        marginBottom: '20px',
       },
     };
 
