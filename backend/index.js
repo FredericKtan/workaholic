@@ -16,7 +16,7 @@ const messageRoutes = require('./api/routes/messageRoutes');
 
 //Set Globals
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 //Database
 mongoose.Promise = Promise;

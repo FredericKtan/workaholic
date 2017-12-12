@@ -1,38 +1,38 @@
 swagger: '2.0'
 info:
   version: 1.0.0
-  title: Message API
-  description: Message API
+  title: Workaholic API
+  description: Sandbox for backend skills
   license:
     name: MIT
     url: https://opensource.org/licenses/MIT
-host: localhost:3000
+host: localhost:3001
 basePath: "/api"
 tags:
-- name: Message
-  description: API for Message in the system
+  - name: Message
+      description: Basic operations on Message collection
 schemes:
-- http
+  - http
 consumes:
-- application/json
+  - application/json
 produces:
 - application/json
 paths:
   "/message":
     get:
       tags:
-      - Message
-      summary: Get all messages in the system
+      - Messages
+      summary: Get every messages
       responses:
         '200':
-          description: OK
+          description: Messages found
           schema:
         '500':
-          description : Could not retrieve all messages
+          description : Internal Server Error
     post:
       tags:
       - Message
-      summary: Add a new Message in the system
+      summary: Add a new message
       parameters:
       - name: message
         in: body
@@ -48,17 +48,17 @@ paths:
           description : text not found
         '500':
           description : Could not created Message
-  "/message/{messageId}":
+  "/message/{id}":
     parameters:
-    - name: messageId
+    - name: id
       in: path
       required: true
-      description: ID of Message that we want to find
+      description: Message's ID
       type: string
     get:
       tags:
       - Message
-      summary: Get Message with given ID
+      summary: Get the message with the given ID
       responses:
         '200':
           description: Message is found
