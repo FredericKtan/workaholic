@@ -15,8 +15,8 @@ import DeveloperIndicator from './components/Developer/DeveloperIndicator';
 // Component
 import MenuItem from './components/SideBar/MenuItem';
 import MenuList from './components/SideBar/MenuList';
-import UIContainer from './components/UI/UIContainer';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
+import UISeparator from './components/UI/UISeparator';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 
 // Pages
@@ -71,35 +71,36 @@ class App extends Component {
         width: '300px',
         opacity: '1',
         overflowY: 'hidden',
-        backgroundColor: '#050505',
         color: '#fafafa',
+        backgroundColor: 'white',
+      },
+      separator: {
+        borderTop: '1px solid black',
       },
     };
 
     return (
       <div className="app">
-        <UIVerticalLayout>
-          <header className="header">
-            <span>FM</span>
-            <h1>Workaholic</h1>
-            <button onClick={this.handleToggleSideBar}>Press me !</button>
-          </header>
+        <UIHorizontalLayout>
           <UIHorizontalLayout>
             <div
               ref={(ref) => { this.sideBar = ref; }}
               style={{ ...styles.sideBar }}
             >
-              <UIContainer>
-                <h2>Menu</h2>
-              </UIContainer>
-              <hr />
+              <MenuItem title="Frederic MAMATH" text="Admin" />
+              <UISeparator />
               <MenuList>
-                <MenuItem title="Frederic MAMATH" text="Admin" />
                 {NavigationListComponent(navigationItems)}
-                <MenuItem title="Log out" />
               </MenuList>
+              <UISeparator />
+              <MenuItem title="Log out" />
             </div>
             <UIVerticalLayout>
+              <header className="header">
+                <span>FM</span>
+                <h1>Workaholic</h1>
+                <button onClick={this.handleToggleSideBar}>Press me !</button>
+              </header>
               <UIVerticalLayout reversed>
                 <form>
                   <UIHorizontalLayout>
@@ -118,7 +119,7 @@ class App extends Component {
               </UIVerticalLayout>
             </UIVerticalLayout>
           </UIHorizontalLayout>
-        </UIVerticalLayout>
+        </UIHorizontalLayout>
         { process.env.NODE_ENV ? <DeveloperIndicator /> : null }
       </div>
     );

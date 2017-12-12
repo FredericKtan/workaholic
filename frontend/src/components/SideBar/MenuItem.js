@@ -48,8 +48,8 @@ class MenuItem extends Component {
       view: {
         backgroundColor: this.props.active ? 'rgba(110, 110, 200, 1)' : 'white',
         display: 'flex',
-        flex: '1',
         color: 'rgba(176, 176, 176, 1)',
+        minHeight: '80px',
       },
       title: {
         fontWeight: 'bold',
