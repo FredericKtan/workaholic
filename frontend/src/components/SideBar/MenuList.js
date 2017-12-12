@@ -5,6 +5,7 @@ const MenuList = ({ children }) => {
   const styles = {
     view: {
       display: 'flex',
+      flex: '1',
       flexDirection: 'column',
       listStyleType: 'none',
       padding: '0px',
