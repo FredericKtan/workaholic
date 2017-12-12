@@ -1,0 +1,104 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Workaholic API
+  description: Sandbox for backend skills
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+host: localhost:3001
+basePath: "/api"
+tags:
+  - name: Message
+      description: Basic operations on Message collection
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+- application/json
+paths:
+  "/message":
+    get:
+      tags:
+      - Messages
+      summary: Get every messages
+      responses:
+        '200':
+          description: Messages found
+          schema:
+        '500':
+          description : Internal Server Error
+    post:
+      tags:
+      - Message
+      summary: Add a new message
+      parameters:
+      - name: message
+        in: body
+        description: Message that we want to create
+        schema:
+          "$ref": "#/definitions/Message"
+      produces:
+      - application/json
+      responses:
+        '200':
+          description: New Message is created
+        '400':
+          description : text not found
+        '500':
+          description : Could not created Message
+  "/message/{id}":
+    parameters:
+    - name: id
+      in: path
+      required: true
+      description: Message's ID
+      type: string
+    get:
+      tags:
+      - Message
+      summary: Get the message with the given ID
+      responses:
+        '200':
+          description: Message is found
+        '500':
+          description: Could not retrieve this message id
+    put:
+      summary: Update Message with given ID
+      tags:
+      - Message
+      parameters:
+      - name: message
+        in: body
+        description: Message with new values of properties
+        schema:
+          "$ref": "#/definitions/Message"
+      responses:
+        '200':
+          description: Message is updated
+        '400':
+          description : messageId not found
+        '401':
+          description : text not found
+        '500':
+          description : Could not update this message id    
+    delete:
+      summary: Delete Message with given ID
+      tags:
+      - Message
+      responses:
+        '200':
+          description: Message is deleted
+        '400':
+          description : The id can not be empty
+        '500':
+          description : Could not delete this message id
+
+definitions:
+  Message:
+    required:
+    - text
+    properties:
+      text:
+        type: string

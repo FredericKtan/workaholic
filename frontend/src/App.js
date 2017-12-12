@@ -9,12 +9,14 @@ import './App.css';
 // Actions
 import { createMessage } from './actions/message';
 
-// Developer component
+// Development component
 import DeveloperIndicator from './components/Developer/DeveloperIndicator';
 
 // Component
-import UIContainer from "./components/UI/UIContainer";
+import MenuItem from './components/SideBar/MenuItem';
+import MenuList from './components/SideBar/MenuList';
 import UIHorizontalLayout from './components/UI/UIHorizontalLayout';
+import UISeparator from './components/UI/UISeparator';
 import UIVerticalLayout from './components/UI/UIVerticalLayout';
 
 // Pages
@@ -26,8 +28,8 @@ import UsersPage from './routes/UsersPage';
 
 const NavigationListComponent = navigationList => (
   navigationList.map(navigation => (
-    <Link to={navigation.route} key={navigation.id}>
-      <li>{navigation.text}</li>
+    <Link to={navigation.route} key={navigation.id} style={{ textDecoration: 'none' }}>
+      <MenuItem title={navigation.text} text="Hello World !" mood={navigation.mood} />
     </Link>
   ))
 );
@@ -50,7 +52,7 @@ class App extends Component {
 
   handleToggleSideBar() {
     TweenLite.to(this.sideBar, 1, {
-      width: this.state.sideBarIsOpen ? '0px' : '500px',
+      width: this.state.sideBarIsOpen ? '0px' : '300px',
       opacity: this.state.sideBarIsOpen ? '0' : '1',
       onComplete: () => {},
     });
@@ -66,36 +68,39 @@ class App extends Component {
         display: 'flex',
         flexDirection: 'column',
         height: '100%',
-        width: '500px',
+        width: '300px',
         opacity: '1',
         overflowY: 'hidden',
-        backgroundColor: '#050505',
         color: '#fafafa',
+        backgroundColor: 'white',
+      },
+      separator: {
+        borderTop: '1px solid black',
       },
     };
 
     return (
       <div className="app">
-        <UIVerticalLayout>
-          <header className="header">
-            <span>FM</span>
-            <h1>Workaholic</h1>
-            <button onClick={this.handleToggleSideBar}>Press me !</button>
-          </header>
+        <UIHorizontalLayout>
           <UIHorizontalLayout>
             <div
               ref={(ref) => { this.sideBar = ref; }}
               style={{ ...styles.sideBar }}
             >
-              <UIContainer>
-                <h2>Menu</h2>
-              </UIContainer>
-              <hr />
-              <ul>
+              <MenuItem title="Frederic MAMATH" text="Admin" />
+              <UISeparator />
+              <MenuList>
                 {NavigationListComponent(navigationItems)}
-              </ul>
+              </MenuList>
+              <UISeparator />
+              <MenuItem title="Log out" />
             </div>
             <UIVerticalLayout>
+              <header className="header">
+                <span>FM</span>
+                <h1>Workaholic</h1>
+                <button onClick={this.handleToggleSideBar}>Press me !</button>
+              </header>
               <UIVerticalLayout reversed>
                 <form>
                   <UIHorizontalLayout>
@@ -114,7 +119,7 @@ class App extends Component {
               </UIVerticalLayout>
             </UIVerticalLayout>
           </UIHorizontalLayout>
-        </UIVerticalLayout>
+        </UIHorizontalLayout>
         { process.env.NODE_ENV ? <DeveloperIndicator /> : null }
       </div>
     );
