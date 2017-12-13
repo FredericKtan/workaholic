@@ -15,7 +15,7 @@
 /frontend/src/config
 
 # css
-.css
+/frontend/src/**/*.css
 
 # misc
 .DS_Store
