@@ -1,0 +1,75 @@
+// Shades
+
+$lightest: 45;
+$lighter: 30;
+$light: 15;
+$dark: 15;
+$darker: 30;
+$darkest: 45;
+
+
+// Colors
+
+$base-black: #000000;
+$black: (
+  base: $base-black,
+  lightest: lighten($base-black, $lightest),
+  lighter: lighten($base-black, $lighter),
+  light: lighten($base-black, $light),
+  dark: darken($base-black, $dark),
+  darker: darken($base-black, $darker),
+  darkest: darken($base-black, $darkest),
+);
+
+$base-white: #FFFFFF;
+$white: (
+  base: $base-white,
+  lightest: lighten($base-white, $lightest),
+  lighter: lighten($base-white, $lighter),
+  light: lighten($base-white, $light),
+  dark: darken($base-white, $dark),
+  darker: darken($base-white, $darker),
+  darkest: darken($base-white, $darkest),
+);
+
+$base-red: #f44336 ;
+$red: (
+  base: $base-white,
+  lightest: lighten($base-white, $lightest),
+  lighter: lighten($base-white, $lighter),
+  light: lighten($base-white, $light),
+  dark: darken($base-white, $dark),
+  darker: darken($base-white, $darker),
+  darkest: darken($base-white, $darkest),
+);
+
+$base-green: #8bc34a ;
+$green: (
+  base: $base-green,
+  lightest: lighten($base-green, $lightest),
+  lighter: lighten($base-green, $lighter),
+  light: lighten($base-green, $light),
+  dark: darken($base-green, $dark),
+  darker: darken($base-green, $darker),
+  darkest: darken($base-green, $darkest),
+);
+
+$base-blue: #2196f3;
+$blue: (
+  base: $base-blue,
+  lightest: lighten($base-blue, $lightest),
+  lighter: lighten($base-blue, $lighter),
+  light: lighten($base-blue, $light),
+  dark: darken($base-blue, $dark),
+  darker: darken($base-blue, $darker),
+  darkest: darken($base-blue, $darkest),
+);
+
+@function Color($base, $shade: base) {
+  $_colors: (
+  red: $red,
+  green: $green,
+  blue: $blue,
+  );
+  @return map-get(map-get($_colors, $base), $shade);
+}
