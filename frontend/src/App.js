@@ -24,6 +24,7 @@ import navigationItems from './routes';
 import AboutPage from './routes/AboutPage';
 import HomePage from './routes/HomePage';
 import MessagesPage from './routes/MessagesPage';
+import TrelloPage from './routes/TrelloPage';
 import UsersPage from './routes/UsersPage';
 
 const NavigationListComponent = navigationList => (
@@ -114,6 +115,7 @@ class App extends Component {
                     <Route exact path="/Messages" component={MessagesPage} />
                     <Route exact path="/Users" component={UsersPage} />
                     <Route exact path="/About" component={AboutPage} />
+                    <Route exact path="/Trello" component={TrelloPage} />
                   </Switch>
                 </UIVerticalLayout>
               </UIVerticalLayout>

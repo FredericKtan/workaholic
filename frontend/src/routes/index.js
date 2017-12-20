@@ -19,6 +19,11 @@ const navigationItems = [
     route: '/about',
     text: 'About',
     mood: 'sad',
+  }, {
+    id: 5,
+    route: '/trello',
+    text: 'Trello',
+    mood: 'shocked',
   },
 ];
 
